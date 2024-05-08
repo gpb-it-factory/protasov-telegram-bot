@@ -8,7 +8,7 @@
 
 ```plantuml
 @startuml
-participant User
+actor User as "Client"
 participant "Frontend" as Frontend
 participant "Middle" as Middle
 participant "Backend" as Backend
