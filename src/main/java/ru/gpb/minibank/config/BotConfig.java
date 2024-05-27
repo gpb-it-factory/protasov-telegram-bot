@@ -1,5 +1,6 @@
 package ru.gpb.minibank.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -12,6 +13,7 @@ public class BotConfig {
 
     private final BotProperties botProperties;
 
+    @Autowired
     public BotConfig(BotProperties botProperties) {
         this.botProperties = botProperties;
     }
