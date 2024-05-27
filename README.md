@@ -41,20 +41,40 @@ deactivate Frontend
    - Обрабатывает банковские транзакции.
    - Хранит клиентские данные.
 
-## Используемые технологии и инструменты
+## Доступные операции
 
-### Платформы и фреймворки
-- Java Spring Boot
-- Gradle
+1. **/start** - Отправляет стандартный текст приветствия.
 
-### Интерфейс и взаимодействие
+2. **/pong** - Отвечает сообщением "pong". 
+
+## Стек технологий
+
+### Платформы
+- **Java Spring Boot** версия 3.3.0
+- **Gradle** версия 8.7
+- **JDK** версия 21.0.3
+
+### Интерфейс
 - java-telegram-bot-api
 ### База данных
 - PostgreSQL
 
-## Начало работы
+## Запуск проекта
 
-Чтобы начать работу с проектом, клонируйте репозиторий и следуйте инструкциям.
-
+Linux/MacOS:
+1. Клонирование репозитория:
+```
+$ git clone https://github.com/gpb-it-factory/protasov-telegram-bot.git
+$ cd protasov-telegram-bot
+```
+2. Настройка параметров бота:
+```
+$ export bot_name="твой_bot_name"
+$ export bot_token="твой_bot_token"
+```
+3. Запуск приложения:
+```
+$ ./gradlew bootRun
+```
 ## Материалы и ресурсы
 - [Практические задания](https://github.com/gpb-it-factory/practice/tree/trunk/exercises)

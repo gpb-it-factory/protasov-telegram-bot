@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: minibank
+
+telegram:
+    bot:
+        name: ${bot_name}
+        token: ${bot_token}
