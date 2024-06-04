@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Component
 public class MessageSender extends DefaultAbsSender {
 
-    public MessageSender(@Value("${bot.token}") String botToken) {
+    public MessageSender(@Value("${telegram.bot.token}") String botToken) {
         super(new DefaultBotOptions(), botToken);
     }
 
