@@ -6,3 +6,16 @@ telegram:
     bot:
         name: ${bot_name}
         token: ${bot_token}
+
+services:
+    middle:
+        register:
+            url: http://localhost:8081/api/register
+
+custom:
+    timeout:
+        connect: 5000
+        read: 5000
+
+server:
+    port: 8080

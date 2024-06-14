@@ -10,11 +10,9 @@ import ru.gpb.minibank.config.BotProperties;
 
 @Slf4j
 @Service
-public class TelegramBot extends TelegramLongPollingBot {
-
+public final class TelegramBot extends TelegramLongPollingBot {
     private final String botUsername;
-
-    private MessageReceiver messageReceiver;
+    private MessageHandler messageHandler;
 
     public TelegramBot(BotProperties botProperties) {
         super(botProperties.token());
@@ -22,15 +20,15 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     @Autowired
-    public void setMessageReceiver(MessageReceiver messageReceiver) {
-        this.messageReceiver = messageReceiver;
+    public void setMessageHandler(MessageHandler messageHandler) {
+        this.messageHandler = messageHandler;
     }
 
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             try {
-                messageReceiver.handleMessage(update);
+                messageHandler.processUpdate(update);
             } catch (TelegramApiException e) {
                 log.error("Ошибка при обработке сообщения", e);
             }
