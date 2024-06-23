@@ -1,4 +1,4 @@
-package ru.gpb.minibank.service;
+package ru.gpb.minibank.service.MessageSender;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
