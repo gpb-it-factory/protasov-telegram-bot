@@ -10,7 +10,9 @@ telegram:
 services:
     middle:
         register:
-            url: http://localhost:8081/api/register
+            url: http://localhost:8081/api/v2/users
+        create-account:
+            url: http://localhost:8081/api/v2/users/{id}/accounts
 
 custom:
     timeout:
