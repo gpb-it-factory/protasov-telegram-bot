@@ -11,7 +11,6 @@ import ru.gpb.minibank.service.TelegramBot;
 
 @Configuration
 public class BotConfig {
-
     private final BotProperties botProperties;
 
     @Autowired
@@ -31,6 +30,4 @@ public class BotConfig {
         telegramBotsApi.registerBot(bot);
         return bot;
     }
-
-
 }

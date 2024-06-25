@@ -1,4 +1,4 @@
-package ru.gpb.minibank.service;
+package ru.gpb.minibank.service.MessageSender;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -8,9 +8,9 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
-public class MessageSender extends DefaultAbsSender {
+public final class MessageSenderImpl extends DefaultAbsSender implements MessageSender {
 
-    public MessageSender(@Value("${telegram.bot.token}") String botToken) {
+    public MessageSenderImpl(@Value("${telegram.bot.token}") String botToken) {
         super(new DefaultBotOptions(), botToken);
     }
 

@@ -9,7 +9,7 @@ import ru.gpb.minibank.config.BotProperties;
 @EnableConfigurationProperties(BotProperties.class)
 public class MinibankApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MinibankApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MinibankApplication.class, args);
+    }
 }
