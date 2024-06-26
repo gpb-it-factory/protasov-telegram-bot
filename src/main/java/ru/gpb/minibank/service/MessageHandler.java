@@ -36,5 +36,4 @@ public class MessageHandler {
                 .orElse(unknownCommand)
                 .execute(update);
     }
-
 }
