@@ -13,6 +13,8 @@ services:
             url: http://localhost:8081/api/v2/users
         create-account:
             url: http://localhost:8081/api/v2/users/{id}/accounts
+        current-balance:
+            url: http://localhost:8081/api/v2/users/{id}/accounts
 
 custom:
     timeout:

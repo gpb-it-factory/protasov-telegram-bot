@@ -11,7 +11,7 @@ public class DTOFactory {
         return new UserRegistrationRequest(message.getChatId(), message.getFrom().getUserName());
     }
 
-    public CreateAccountRequest createAccountRequest(Update update, String accountName) {
-        return new CreateAccountRequest(update.getMessage().getChatId(), accountName);
+    public CreateAccountRequest createAccountRequest(String accountName) {
+        return new CreateAccountRequest(accountName);
     }
 }

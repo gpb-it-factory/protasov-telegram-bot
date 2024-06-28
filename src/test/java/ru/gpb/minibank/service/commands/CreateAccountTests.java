@@ -11,7 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ru.gpb.minibank.client.AccountClient;
-import ru.gpb.minibank.exception.AccountCreationException;
+import ru.gpb.minibank.exception.AccountException;
 import ru.gpb.minibank.service.dto.CreateAccountRequest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -51,12 +51,12 @@ public class CreateAccountTests {
         update = new Update();
         update.setMessage(message);
 
-        request = new CreateAccountRequest(CHAT_ID, "Акционный");
+        request = new CreateAccountRequest("Акционный");
     }
 
     @Test
-    void whenCreateAccountIsSuccessful_thenReturnSuccessMessage() throws AccountCreationException {
-        doNothing().when(accountClient).createAccount(request);
+    void whenCreateAccountIsSuccessful_thenReturnSuccessMessage() throws AccountException {
+        doNothing().when(accountClient).createAccount(CHAT_ID, request);
 
         String result = createAccount.execute(update);
 
@@ -64,9 +64,9 @@ public class CreateAccountTests {
     }
 
     @Test
-    void whenRestExceptionOccurs_thenReturnConnectionErrorMessage() throws AccountCreationException {
-        doThrow(new AccountCreationException(CONNECTION_ERROR_MESSAGE))
-                .when(accountClient).createAccount(request);
+    void whenRestExceptionOccurs_thenReturnConnectionErrorMessage() throws AccountException {
+        doThrow(new AccountException(CONNECTION_ERROR_MESSAGE))
+                .when(accountClient).createAccount(CHAT_ID, request);
 
         String result = createAccount.execute(update);
 
@@ -74,9 +74,9 @@ public class CreateAccountTests {
     }
 
     @Test
-    void whenHttpStatusExceptionOccurs_thenReturnErrorMessage() throws AccountCreationException {
-        doThrow(new AccountCreationException(ACCOUNT_ERROR))
-                .when(accountClient).createAccount(request);
+    void whenHttpStatusExceptionOccurs_thenReturnErrorMessage() throws AccountException {
+        doThrow(new AccountException(ACCOUNT_ERROR))
+                .when(accountClient).createAccount(CHAT_ID, request);
 
         String result = createAccount.execute(update);
 
