@@ -43,9 +43,10 @@ deactivate Frontend
 
 ## Доступные операции
 
-1. **/start** - Отправляет стандартный текст приветствия.
-
-2. **/pong** - Отвечает сообщением "pong". 
+1. /register - регистрация в приложении банка;
+2. /createaccount - открытие счёта; 
+3. /currentbalance - проверка баланса; 
+4. /transfer [пользователь] [сумма] - перевод средств.
 
 ## Стек технологий
 
@@ -60,21 +61,43 @@ deactivate Frontend
 - PostgreSQL
 
 ## Запуск проекта
-
 Linux/MacOS:
+
 1. Клонирование репозитория:
 ```
 $ git clone https://github.com/gpb-it-factory/protasov-telegram-bot.git
 $ cd protasov-telegram-bot
 ```
-2. Настройка параметров бота:
+
+<details>
+  <summary>Запуск через Docker</summary>
+
+2. Сборка Docker образа:
+
 ```
-$ export bot_name="твой_bot_name"
+$ docker build -t minibank .
+``` 
+3. Запуск контейнера:
+```
+docker run -d --name run-minibank -e bot_token="твой_bot_token" minibank
+```
+</details>
+
+<details>
+  <summary>Запуск через Gradle</summary>
+
+2. Настройка параметров бота:
+
+```
 $ export bot_token="твой_bot_token"
 ```
 3. Запуск приложения:
+
 ```
 $ ./gradlew bootRun
 ```
+</details>
+
+
 ## Материалы и ресурсы
 - [Практические задания](https://github.com/gpb-it-factory/practice/tree/trunk/exercises)
