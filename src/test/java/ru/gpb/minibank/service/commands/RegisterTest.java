@@ -19,7 +19,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 
 @ExtendWith(MockitoExtension.class)
-class RegisterTests {
+class RegisterTest {
     @Mock
     private RegistrationClient registrationClient;
 

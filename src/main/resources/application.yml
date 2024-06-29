@@ -4,7 +4,7 @@ spring:
 
 telegram:
     bot:
-        name: ${bot_name}
+        name: GpbBot
         token: ${bot_token}
 
 services:

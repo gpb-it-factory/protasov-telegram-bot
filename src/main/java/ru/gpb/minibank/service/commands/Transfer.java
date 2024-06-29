@@ -39,7 +39,7 @@ public class Transfer implements Command {
         Message message = update.getMessage();
         return processTransfer(message.getText(), message.getChatId())
                 .orElse("""
-                        Неправильный формат команды. Используйте: /transfer [toTelegramUser] [amount]
+                        Неправильный формат команды. Используйте: /transfer [пользователь] [сумма]
                         Никнейм должен содержать только английские буквы и быть не короче 4 символов.
                         Сумма должна быть больше 0.""");
 

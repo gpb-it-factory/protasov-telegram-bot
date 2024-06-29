@@ -40,7 +40,7 @@ public class TransferTest {
             AMOUNT, TO_USER_NAME, TRANSFER_ID
     );
     private static final String INVALID_FORMAT_MESSAGE = "Неправильный формат команды. " +
-            "Используйте: /transfer [toTelegramUser] [amount]\n" +
+            "Используйте: /transfer [пользователь] [сумма]\n" +
             "Никнейм должен содержать только английские буквы и быть не короче 4 символов.\n" +
             "Сумма должна быть больше 0.";
     private static final String TRANSFER_ERROR = "Ошибка при переводе средств.";

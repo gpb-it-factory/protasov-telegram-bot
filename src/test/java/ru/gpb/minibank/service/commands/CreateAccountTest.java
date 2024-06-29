@@ -19,7 +19,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 
 @ExtendWith(MockitoExtension.class)
-public class CreateAccountTests {
+public class CreateAccountTest {
     @Mock
     private AccountClient accountClient;
 

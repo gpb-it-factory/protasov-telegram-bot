@@ -18,7 +18,10 @@ public class Start implements Command {
     @Override
     public String execute(Update update) {
         return "Привет. Я — бот, созданный для проекта МиниБанк " +
-                "в рамках бэкенд-академии GPB IT FACTORY 2024. " +
-                "Пока что я умею отвечать на команду /ping.";
+                "в рамках бэкенд-академии GPB IT FACTORY 2024. Вот что я умею делать:\n" +
+                "/register - регистрация в нашем банке;\n" +
+                "/createaccount - открытие счёта;\n" +
+                "/currentbalance - проверка баланса;\n" +
+                "/transfer [пользователь] [сумма] - перевод средств.";
     }
 }
