@@ -15,7 +15,8 @@ services:
             url: http://localhost:8081/api/v2/users/{id}/accounts
         current-balance:
             url: http://localhost:8081/api/v2/users/{id}/accounts
-
+        transfer:
+            url: http://localhost:8081/api/v2/transfers
 custom:
     timeout:
         connect: 5000
