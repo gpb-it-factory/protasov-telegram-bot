@@ -30,7 +30,6 @@ public class TransferTest {
     private Update update;
     private TransferRequest request;
 
-    private static final long CHAT_ID = 543L;
     private static final String FROM_USER_NAME = "testUser";
     private static final String TO_USER_NAME = "ner1";
     private static final String AMOUNT = "1000.12";
@@ -48,10 +47,9 @@ public class TransferTest {
     @BeforeEach
     void setUp() {
         User user = new User();
-        user.setUserName(FROM_USER_NAME);
 
         Chat chat = new Chat();
-        chat.setId(CHAT_ID);
+        chat.setUserName(FROM_USER_NAME);
 
         Message message = new Message();
         message.setFrom(user);
@@ -61,7 +59,7 @@ public class TransferTest {
         update = new Update();
         update.setMessage(message);
 
-        request = new TransferRequest(CHAT_ID, TO_USER_NAME, AMOUNT);
+        request = new TransferRequest(FROM_USER_NAME, TO_USER_NAME, AMOUNT);
     }
 
     @Test
