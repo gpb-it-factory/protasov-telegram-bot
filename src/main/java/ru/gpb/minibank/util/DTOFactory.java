@@ -16,7 +16,7 @@ public class DTOFactory {
         return new CreateAccountRequest(accountName);
     }
 
-    public TransferRequest createTransferRequest(Long fromUserId, String toUsername, String amount) {
-        return new TransferRequest(fromUserId, toUsername, amount);
+    public TransferRequest createTransferRequest(String from, String to, String amount) {
+        return new TransferRequest(from, to, amount);
     }
 }

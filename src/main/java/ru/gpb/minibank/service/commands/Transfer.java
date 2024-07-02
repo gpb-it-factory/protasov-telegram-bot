@@ -37,7 +37,7 @@ public class Transfer implements Command {
     @Override
     public String execute(Update update) {
         Message message = update.getMessage();
-        return processTransfer(message.getText(), message.getChatId())
+        return processTransfer(message.getText(), message.getChat().getUserName())
                 .orElse("""
                         Неправильный формат команды. Используйте: /transfer [пользователь] [сумма]
                         Никнейм должен содержать только английские буквы и быть не короче 4 символов.
@@ -45,9 +45,9 @@ public class Transfer implements Command {
 
     }
 
-    private Optional<String> processTransfer(String message, Long fromUserId) {
+    private Optional<String> processTransfer(String message, String fromUserName) {
         return extractTransferDetails(message)
-                .map(details -> performTransfer(details, fromUserId));
+                .map(details -> performTransfer(details, fromUserName));
     }
 
     private Optional<TransferDetails> extractTransferDetails(String message) {
@@ -60,8 +60,8 @@ public class Transfer implements Command {
         return Optional.empty();
     }
 
-    private String performTransfer(TransferDetails details, Long fromUserId) {
-        var request = dtoFactory.createTransferRequest(fromUserId, details.toUsername, details.amount);
+    private String performTransfer(TransferDetails details, String fromUserName) {
+        var request = dtoFactory.createTransferRequest(fromUserName, details.toUsername, details.amount);
         try {
             TransferResponse response = transferClient.transferMoney(request);
             return String.format("Перевод пользователю %s на сумму %s выполнен. ID перевода: %s",

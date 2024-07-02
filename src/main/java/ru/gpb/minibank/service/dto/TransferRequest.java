@@ -1,3 +1,3 @@
 package ru.gpb.minibank.service.dto;
 
-public record TransferRequest(Long fromUserId, String toUsername, String amount) { }
+public record TransferRequest(String from, String to, String amount) { }
