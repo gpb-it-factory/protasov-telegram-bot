@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.gpb.minibank.client.AccountClient;
-import ru.gpb.minibank.exception.AccountCreationException;
+import ru.gpb.minibank.exception.AccountException;
 import ru.gpb.minibank.util.DTOFactory;
 @Component
 public class CreateAccount implements Command {
@@ -27,16 +27,17 @@ public class CreateAccount implements Command {
 
     @Override
     public String execute(Update update) {
-        var request = dtoFactory.createAccountRequest(update, ACCOUNT_NAME);
+        var request = dtoFactory.createAccountRequest(ACCOUNT_NAME);
         String answer;
 
         try {
-            accountClient.createAccount(request);
+            accountClient.createAccount(update.getMessage().getChatId(), request);
             answer = "Счет 'Акционный' открыт!";
-        } catch (AccountCreationException error) {
+        } catch (AccountException error) {
             answer = error.getMessage();
         }
 
         return answer;
     }
 }
+

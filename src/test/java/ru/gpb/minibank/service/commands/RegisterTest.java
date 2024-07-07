@@ -1,4 +1,4 @@
-package ru.gpb.minibank.service;
+package ru.gpb.minibank.service.commands;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ru.gpb.minibank.client.RegistrationClient;
 import ru.gpb.minibank.exception.UserRegistrationException;
-import ru.gpb.minibank.service.commands.Register;
 import ru.gpb.minibank.service.dto.UserRegistrationRequest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +19,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 
 @ExtendWith(MockitoExtension.class)
-class RegisterTests {
+class RegisterTest {
     @Mock
     private RegistrationClient registrationClient;
 
@@ -28,9 +27,6 @@ class RegisterTests {
     private Register register;
 
     private Update update;
-    private Message message;
-    private User user;
-    private Chat chat;
     private UserRegistrationRequest request;
 
     private static final long CHAT_ID = 543L;
@@ -41,13 +37,13 @@ class RegisterTests {
 
     @BeforeEach
     void setUp() {
-        user = new User();
+        User user = new User();
         user.setUserName(USER_NAME);
 
-        chat = new Chat();
+        Chat chat = new Chat();
         chat.setId(CHAT_ID);
 
-        message = new Message();
+        Message message = new Message();
         message.setFrom(user);
         message.setText("/register");
         message.setChat(chat);
